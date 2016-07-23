@@ -1,0 +1,13 @@
+{
+    "name": "cenepred/simse-1",
+    "type": "project",
+    "require": {
+        "illuminate/database": "*"
+    },
+    "authors": [
+        {
+            "name": "Ronald Loyola Pulido",
+            "email": "correo@example.com"
+        }
+    ]
+}

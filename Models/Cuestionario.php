@@ -1,6 +1,17 @@
 <?php namespace Models;
+	error_reporting(E_ALL);
+	ini_set('display_errors', '1');
 
-	class Cuestionario{
+	require_once 'Conexion.php';
+
+	use Illuminate\Database\Eloquent\Model as Eloquent;
+
+	class Cuestionario extends Eloquent {
+		 protected $table = 'cntbc_cuestionario';
+		 protected $primaryKey = 'i_codcuest';
+	}
+
+	/*class Cuestionario{
 
 		private $i_codcuest;
 		private $v_descuest;
@@ -28,7 +39,7 @@
 
 		public function add(){
 			$last_data = $this->viewLast();
-			$i_codcuest_last = $last_data['I_CODCUEST']+1;			
+			$i_codcuest_last = $last_data['I_CODCUEST']+1;
 			$sql = "INSERT INTO cntbc_cuestionario(i_codcuest, v_descuest, i_codplan, d_fecreg)
 					VALUES ('$i_codcuest_last', '{$this->v_descuest}', '{$this->i_codplan}', NOW())";
 			$this->con->consultaSimple($sql);
@@ -58,5 +69,5 @@
 			return $row;
 		}
 		//falta asignar a un usuario
-	}
+	}*/
 ?>

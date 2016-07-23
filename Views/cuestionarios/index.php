@@ -7,24 +7,34 @@
 	  <div class="panel-body">
 	    <table class="table table-striped table-hover ">
 		  <thead>
-		    <tr>		      
+		    <tr>
 		      <th>Cod cuestionario</th>
-		      <th>Cuestionario</th>		      
+		      <th>Cuestionario</th>
 		      <th>Acción</th>
 		    </tr>
 		  </thead>
 		  <tbody>
-		  	<?php while($row = mysqli_fetch_array($datos)){ ?>
-		  	<tr>		  			
-					<td><a href="<?php echo URL; ?>cuestionarios/ver/<?php echo $row['i_codcuest']; ?>"><?php echo $row['i_codcuest']; ?></a></td>
-			    	<td><?php echo $row['v_descuest']; ?></td>			    	
-			    	<td><a class="btn btn-warning" href="<?php echo URL; ?>cuestionarios/editar/<?php echo $row['i_codcuest']; ?>">Editar</a>
-						<a class="btn btn-danger" href="<?php echo URL; ?>cuestionarios/eliminar/<?php echo $row['i_codcuest']; ?>">Eliminar</a>
-			    	</td>
-			</tr>
-			<?php } ?>
+
+				<?php if ($datos) {
+					foreach ($datos as $item) { ?>
+					<tr>
+						<td>
+							<a href="<?php echo URL; ?>cuestionarios/ver/<?php echo $item->I_CODCUEST; ?>"><?php echo $item->I_CODCUEST; ?></a>
+						</td>
+						<td>
+							<?php echo $item->V_DESCUEST; ?>
+						</td>
+						<td>
+							<a class="btn btn-warning" href="<?php echo URL; ?>cuestionarios/editar/<?php echo $item->I_CODCUEST; ?>">Editar</a>
+							<a class="btn btn-danger" href="<?php echo URL; ?>cuestionarios/eliminar/<?php echo $item->I_CODCUEST; ?>">Eliminar</a>
+						</td>
+					</tr>
+
+					<?php }
+				} ?>
+
 		  </tbody>
-		</table> 
+		</table>
 	  </div>
 	</div>
 </div>
